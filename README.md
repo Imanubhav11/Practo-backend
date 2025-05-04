@@ -1,0 +1,32 @@
+# Patient Management API
+
+A TypeScript-based Express API for managing patient records with in-memory storage. Built with Node.js, Express, and TypeScript.
+
+## Features
+
+- Create, read, and delete patient records
+- Type-safe data handling with TypeScript interfaces
+- Simple in-memory data storage (for development)
+- RESTful endpoint design
+
+## API Endpoints
+
+| Method | Endpoint                | Description                          | Request Body Example                  |
+|--------|-------------------------|--------------------------------------|---------------------------------------|
+| POST   | `/api/patients`         | Create a new patient                 | [See below](#create-patient)          |
+| GET    | `/api/patients`         | Get all patients                     | -                                     |
+| GET    | `/api/patients/:aadhar` | Get patient by Aadhar number         | -                                     |
+| DELETE | `/api/patients/:aadhar` | Delete patient by Aadhar number      | -                                     |
+
+### Request Examples
+
+#### Create Patient
+```json
+POST /api/patients
+{
+  "fullName": "Ravi Kumar",
+  "age": 50,
+  "aadharNumber": "1234567890",
+  "phoneNumber": "9876543210",
+  "allergy": "Seafood"
+}
