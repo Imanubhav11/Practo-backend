@@ -19,6 +19,7 @@ A TypeScript-based Express API for managing patient records with in-memory stora
 | DELETE | `/api/patients/:aadhar` | Delete patient by Aadhar number      | -                                     |
 
 API Endpoint:  `http://localhost:3000/api/patients`
+API Endpoint for Health Check: `http://localhost:3000/health`
 
 ### Request Examples
 
