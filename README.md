@@ -18,6 +18,8 @@ A TypeScript-based Express API for managing patient records with in-memory stora
 | GET    | `/api/patients/:aadhar` | Get patient by Aadhar number         | -                                     |
 | DELETE | `/api/patients/:aadhar` | Delete patient by Aadhar number      | -                                     |
 
+API Endpoint:  `http://localhost:3000/api/patients`
+
 ### Request Examples
 
 #### Create Patient
@@ -30,3 +32,29 @@ POST /api/patients
   "phoneNumber": "9876543210",
   "allergy": "Seafood"
 }
+
+
+
+## Installation and Setup
+
+### Prerequisites
+Ensure you have the following installed:
+- Node.js
+- npm or yarn
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Imanubhav11/Practo-backend.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Running the Application:
+   ```bash
+    npm run dev
+   ```
+The API will be available at http://localhost:3000
