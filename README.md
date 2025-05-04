@@ -33,7 +33,7 @@ POST /api/patients
   "phoneNumber": "9876543210",
   "allergy": "Seafood"
 }
-
+```
 
 
 ## Installation and Setup
