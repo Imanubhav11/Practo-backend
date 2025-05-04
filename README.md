@@ -24,8 +24,9 @@ API Endpoint for Health Check: `http://localhost:3000/health`
 ### Request Examples
 
 #### Create Patient
-```json
 POST /api/patients
+```json
+
 {
   "fullName": "Ravi Kumar",
   "age": 50,
