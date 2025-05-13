@@ -15,7 +15,7 @@ app.use('/api/patients', patientRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'Healthy backend server' });
+  res.status(200).json({ status: 'The backend server is live' });
 });
 
 // Start the server

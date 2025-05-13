@@ -4,6 +4,7 @@ import {
   addPatient, 
   getAllPatients, 
   getPatientByAadhar, 
+  updatePatient,
   deletePatientByAadhar 
 } from '../models/patientModel';
 
@@ -63,6 +64,55 @@ export const getPatient = (req: Request, res: Response): void => {
   }
 };
 
+
+export const updatePatientDetails = (req: Request, res: Response): void => {
+    try {
+      const { aadharNumber } = req.params;
+      const patientData: PatientInput = req.body;
+      
+      // Basic validation - check if all required fields are present
+      if (!patientData.fullName || !patientData.age || !patientData.phoneNumber || !patientData.allergy) {
+        res.status(400).json({ 
+          error: 'Missing required fields',
+          message: 'All fields are required for update'
+        });
+        return;
+      }
+      
+      // Ensure the aadharNumber in body matches the one in URL if provided
+      if (patientData.aadharNumber && patientData.aadharNumber !== aadharNumber) {
+        res.status(400).json({
+          error: 'Invalid request',
+          message: 'Aadhar number cannot be changed'
+        });
+        return;
+      }
+      
+      // Add the URL aadharNumber to the update data
+      const updateData = {
+        ...patientData,
+        aadharNumber: aadharNumber
+      };
+      
+      const updatedPatient = updatePatient(aadharNumber, updateData);
+      
+      if (!updatedPatient) {
+        res.status(404).json({
+          error: 'Patient not found',
+          message: 'No patient found with the provided Aadhar number'
+        });
+        return;
+      }
+      
+      res.status(200).json(updatedPatient);
+    } catch (error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Failed to update patient'
+      });
+    }
+  };
+
 export const deletePatient = (req: Request, res: Response): void => {
   try {
     const { aadharNumber } = req.params;
@@ -78,6 +128,6 @@ export const deletePatient = (req: Request, res: Response): void => {
     
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Delete failed', message: 'Internal server error' });
   }
 };
