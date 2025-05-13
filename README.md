@@ -16,6 +16,7 @@ A TypeScript-based Express API for managing patient records with in-memory stora
 | POST   | `/api/patients`         | Create a new patient                 | [See below](#create-patient)          |
 | GET    | `/api/patients`         | Get all patients                     | -                                     |
 | GET    | `/api/patients/:aadhar` | Get patient by Aadhar number         | -                                     |
+| PUT    | `/api/patients/:aadhar` | Update patient by Aadhar number      | [See below](#update-patient)          |
 | DELETE | `/api/patients/:aadhar` | Delete patient by Aadhar number      | -                                     |
 
 API Endpoint:  `http://localhost:3000/api/patients`
