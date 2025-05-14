@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/patients', patientRoutes);
+app.use('/api', patientRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

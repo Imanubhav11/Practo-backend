@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.post('/', createPatient);
 router.get('/', getPatients);
-router.get('/:aadharNumber', getPatient);
-router.put('/:aadharNumber', updatePatientDetails);
-router.delete('/:aadharNumber', deletePatient);
+router.get('/:id', getPatient); // Use 'id' instead of 'aadharNumber'
+router.put('/:id', updatePatientDetails); // Use 'id' instead of 'aadharNumber'
+router.delete('/:id', deletePatient); // Use 'id' instead of 'aadharNumber'
 
 export default router;
